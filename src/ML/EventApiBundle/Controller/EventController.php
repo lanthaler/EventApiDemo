@@ -9,6 +9,7 @@ use ML\HydraBundle\JsonLdResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use ML\EventApiBundle\Entity\Event;
+use ML\EventApiBundle\Entity\EventCollection;
 
 /**
  * Event controller
@@ -24,9 +25,8 @@ class EventController extends HydraController
      * @Method("GET")
      *
      * @Hydra\Operation()
-     * @Hydra\Collection()
      *
-     * @return array<ML\EventApiBundle\Entity\Event>
+     * @return ML\EventApiBundle\Entity\EventCollection
      */
     public function collectionGetAction()
     {
@@ -34,7 +34,7 @@ class EventController extends HydraController
 
         $entities = $em->getRepository('MLEventApiBundle:Event')->findAll();
 
-        return $entities;
+        return new EventCollection($entities);
     }
 
     /**
