@@ -4,12 +4,15 @@ namespace ML\EventApiBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use ML\HydraBundle\Mapping as Hydra;
 
 /**
  * Event
  *
  * @ORM\Table()
  * @ORM\Entity
+ *
+ * @Hydra\Expose(iri="http://schema.org/Event")
  */
 class Event
 {
@@ -29,6 +32,8 @@ class Event
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="name", type="string", length=255)
+     *
+     * @Hydra\Expose(iri="http://schema.org/name", required=true)
      */
     private $name;
 
@@ -39,6 +44,8 @@ class Event
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="description", type="text")
+     *
+     * @Hydra\Expose(iri="http://schema.org/description", required=true)
      */
     private $description;
 
@@ -49,6 +56,8 @@ class Event
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="startDate", type="datetime")
+     *
+     * @Hydra\Expose(iri="http://schema.org/startDate", required=true)
      */
     private $startDate;
 
@@ -59,6 +68,8 @@ class Event
      *
      * @Assert\NotBlank()
      * @ORM\Column(name="endDate", type="datetime")
+     *
+     * @Hydra\Expose(iri="http://schema.org/endDate", required=true)
      */
     private $endDate;
 
