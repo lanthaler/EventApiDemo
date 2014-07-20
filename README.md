@@ -44,7 +44,7 @@ create a bundle
             --format=annotation --no-interaction
 
 (apart from [`MLEventApiBundle.php`][7] we can delete all files in the
-{`src/ML/EventApiBundle`][8] folder).
+[`src/ML/EventApiBundle`][8] folder).
 
 Then we create an entity class representing an event. Doctrine's generator
 command is quite helpful in this case:
