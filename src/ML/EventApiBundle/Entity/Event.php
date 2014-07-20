@@ -13,6 +13,11 @@ use ML\HydraBundle\Mapping as Hydra;
  * @ORM\Entity
  *
  * @Hydra\Expose(iri="http://schema.org/Event")
+ * @Hydra\Id("event_retrieve")
+ * @Hydra\Operations( {
+ *     "event_replace",
+ *     "event_delete"
+ * } )
  */
 class Event
 {
